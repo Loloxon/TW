@@ -10,21 +10,33 @@ class SemaforBin implements ISemafor{
     z IF'a i poszły dalej. Uzycie pętki WHILE zapewnia, że na raz tylko jeden wątek będzie na raz
     korzystał z zasobu semafora
 */
-    public synchronized void P() throws InterruptedException {
-        while(!_stan){
-            this.wait();
+    public synchronized void P(){
+        try{
+            while(!_stan){
+                this.wait();
+            }
+            System.out.println("Peee");
+            _stan = false;
+            this.notifyAll();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println(e);
+            System.exit(-1);
         }
-        System.out.println("Peee");
-        _stan = false;
-        this.notifyAll();
     }
 
-    public synchronized void V() throws InterruptedException {
-        while(_stan){
-            this.wait();
+    public synchronized void V(){
+        try{
+            while(_stan){
+                this.wait();
+            }
+            System.out.println("Viiiiii");
+            _stan = true;
+            this.notifyAll();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println(e);
+            System.exit(-1);
         }
-        System.out.println("Viiiiii");
-        _stan = true;
-        this.notifyAll();
     }
 }

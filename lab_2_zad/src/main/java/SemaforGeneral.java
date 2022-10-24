@@ -14,14 +14,20 @@ public class SemaforGeneral implements ISemafor{
         semafor = new SemaforBin();
     }
 
-    public synchronized void P() throws InterruptedException {
-        semafor.P();
-        System.out.println("    Increased! +++++");
-        _counter++;
-        semafor.V();
-    }
+    public synchronized void P(){
+        try {
+            semafor.P();
+            System.out.println("    Increased! +++++");
+            _counter++;
+            semafor.V();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println(e);
+            System.exit(-1);
+        }    }
 
-    public synchronized void V() throws InterruptedException {
+    public synchronized void V(){
+        try{
         while(_counter==0){
             this.wait();
         }
@@ -33,5 +39,10 @@ public class SemaforGeneral implements ISemafor{
         _counter--;
         this.notifyAll();
         semafor.V();
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println(e);
+            System.exit(-1);
+        }
     }
 }
