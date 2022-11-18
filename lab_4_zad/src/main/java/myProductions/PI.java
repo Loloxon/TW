@@ -13,6 +13,8 @@ public class PI extends AbstractProduction<Vertex> {
     @Override
     public Vertex apply(Vertex s) {
         System.out.println("PI");
-        return new Vertex(null, null, null, null, "M");
+        Vertex newVertex = new Vertex(null, null, null, null, "M");
+        this.addVertexToDrawer(newVertex);
+        return newVertex;
     }
 }

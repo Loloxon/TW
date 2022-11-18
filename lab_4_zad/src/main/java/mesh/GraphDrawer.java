@@ -2,14 +2,24 @@ package mesh;
 
 import production.PDrawer;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class GraphDrawer implements PDrawer<Vertex> {
+    List<Vertex> vertexList = new ArrayList<>();
     int xSize = 9;
     int ySize = 9;
+
+    @Override
+    public void addVertex(Vertex v){
+        vertexList.add(v);
+    }
     @Override
     public void draw(Vertex v) {
+        System.out.println("-".repeat(xSize+4));
+        vertexList.forEach(item -> item.printed = false);
         int idx = xSize/2, idy = ySize/2;
         String[][] table = new String[xSize][ySize];
         for(int y=0;y<ySize;y++){
@@ -76,18 +86,6 @@ public class GraphDrawer implements PDrawer<Vertex> {
 //            v = v.mRight;
 //        }
 //        System.out.println(v.mLabel);
+        System.out.println("-".repeat(xSize+4));
     }
-// 1  procedure BFS(G, root) is
-// 2      let Q be a queue
-// 3      label root as explored
-// 4      Q.enqueue(root)
-//            5      while Q is not empty do
-//            6          v := Q.dequeue()
-//            7          if v is the goal then
-// 8              return v
-// 9          for all edges from v to w in G.adjacentEdges(v) do
-//            10              if w is not labeled as explored then
-//11                  label w as explored
-//12                  w.parent := v
-//13                  Q.enqueue(w)
 }

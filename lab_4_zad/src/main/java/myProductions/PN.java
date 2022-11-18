@@ -8,6 +8,7 @@ public class PN extends AbstractProduction<Vertex> {
 
     public PN(Vertex _obj, PDrawer<Vertex> _drawer) {
         super(_obj, _drawer);
+        _drawer.addVertex(_obj);
     }
 
     @Override
@@ -15,6 +16,7 @@ public class PN extends AbstractProduction<Vertex> {
         System.out.println("PN");
         Vertex t2 = new Vertex(null, null, null, t1, "N");
         t1.setTop(t2);
+        this.addVertexToDrawer(t2);
         return t2;
     }
 }

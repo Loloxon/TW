@@ -3,19 +3,21 @@ package production;
 import mesh.Vertex;
 import parallelism.MyLock;
 
-import java.util.List;
-
 public abstract class AbstractProduction<P> implements IProduction<P> {
 
     private MyLock lock;
     private final PThread thread = new PThread();
     private final P obj;
     private P result;
-    private final PDrawer<P> drawer;
+    public PDrawer<P> drawer;
 
     public AbstractProduction(P _obj, PDrawer<P> _drawer) {
         this.obj = _obj;
         this.drawer = _drawer;
+    }
+
+    public void addVertexToDrawer(Vertex v){
+        drawer.addVertex(v);
     }
 
     @Override
@@ -45,7 +47,7 @@ public abstract class AbstractProduction<P> implements IProduction<P> {
         public void run() {
             lock.lock();
             result = apply(obj);
-//            drawer.draw(result);
+            drawer.draw(result);
         }
     }
 }
