@@ -1,6 +1,7 @@
 package parallelism;
 
 import production.IProduction;
+import production.PDrawer;
 
 public interface BlockRunner {
 
