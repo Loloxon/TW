@@ -9,8 +9,8 @@ import java.util.Queue;
 
 public class GraphDrawer implements PDrawer<Vertex> {
     List<Vertex> vertexList = new ArrayList<>();
-    int xSize = 9;
-    int ySize = 9;
+    int xSize = 17;
+    int ySize = 17;
 
     @Override
     public void addVertex(Vertex v){

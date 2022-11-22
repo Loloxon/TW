@@ -1,14 +1,14 @@
-import myProductions.*;
-import mesh.Vertex;
 import mesh.GraphDrawer;
+import mesh.Vertex;
+import myProductions.PI;
+import myProductions.PN;
+import myProductions.PNW;
+import myProductions.PW;
 import parallelism.BlockRunner;
 import production.AbstractProduction;
 import production.PDrawer;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Executor extends Thread {
     
@@ -20,9 +20,9 @@ public class Executor extends Thread {
 
     @Override
     public void run() {
-        int N = 5;
+        //parameter
+        int N = 6;
         PDrawer<Vertex> drawer = new GraphDrawer();
-        //axiom
         Vertex s = new Vertex(null, null, null, null, "S");
 
         PW west;
