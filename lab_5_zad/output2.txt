@@ -1,0 +1,24 @@
+D = {(a,a),(a,c),(a,f),(b,b),(b,e),(c,a),(c,c),(c,e),(c,f),(d,d),(d,f),(e,b),(e,c),(e,e),(f,a),(f,c),(f,d),(f,f)}
+
+I = {(a,b),(a,d),(a,e),(b,a),(b,c),(b,d),(b,f),(c,b),(c,d),(d,a),(d,b),(d,c),(d,e),(e,a),(e,d),(e,f),(f,b),(f,e)}
+
+FNF([w]) = [a0, d0, b0][c0, b1][c1][f0, e0]
+
+digraph {
+	a0 [label=a0]
+	c0 [label=c0]
+	d0 [label=d0]
+	c1 [label=c1]
+	f0 [label=f0]
+	b0 [label=b0]
+	b1 [label=b1]
+	e0 [label=e0]
+	a0 -> c0
+	c0 -> c1
+	d0 -> f0
+	c1 -> f0
+	c1 -> e0
+	b0 -> b1
+	b1 -> e0
+}
+

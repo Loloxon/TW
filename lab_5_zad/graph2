@@ -1,0 +1,17 @@
+digraph {
+	a0 [label=a0]
+	c0 [label=c0]
+	d0 [label=d0]
+	c1 [label=c1]
+	f0 [label=f0]
+	b0 [label=b0]
+	b1 [label=b1]
+	e0 [label=e0]
+	a0 -> c0
+	c0 -> c1
+	d0 -> f0
+	c1 -> f0
+	c1 -> e0
+	b0 -> b1
+	b1 -> e0
+}
